@@ -3,6 +3,7 @@ import {
   IsBoolean,
   IsEmail,
   IsNotEmpty,
+  IsOptional,
   IsString,
   isArray,
 } from 'class-validator';
@@ -23,4 +24,23 @@ export class CreateUserDto {
 
   @IsBoolean()
   public isDeleted: boolean;
+
+  @IsString()
+  public password: string;
+
+  @IsString()
+  @IsOptional()
+  public user_cnr_id: string;
+
+  @IsArray()
+  @IsOptional()
+  public properties!: string[];
+
+  @IsArray()
+  @IsOptional()
+  public histories!: string[];
+
+  @IsString()
+  @IsOptional()
+  public user_cnr_ids!: string;
 }

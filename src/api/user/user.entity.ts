@@ -19,13 +19,13 @@ export class User {
   @Column({ type: 'varchar', length: 120 })
   public name!: string;
 
-  @Column({ type: 'varchar', length: 120 })
-  public user_cnr_id!: string;
+  @Column({ type: 'varchar', length: 120, nullable: true })
+  public user_cnr_id: string;
 
   @Column({ type: 'varchar', length: 120 })
   public email!: string;
 
-  @Column({ type: 'varchar', length: 120 })
+  @Column({ type: 'varchar', length: 120, nullable: true })
   public password!: string;
 
   @Column({ type: 'boolean', default: false })
