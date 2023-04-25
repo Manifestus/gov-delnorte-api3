@@ -44,10 +44,16 @@ export class User {
   public updatedAt: Date;
 
   //Relations
-  @ManyToMany(() => Property, (property) => property.id)
+  @ManyToMany(() => Property, (property) => property.id, {
+    nullable: true,
+    onDelete: 'CASCADE',
+  })
   @JoinTable()
   public properties!: Property[];
 
-  @OneToMany(() => History, (history) => history.id)
+  @OneToMany(() => History, (history) => history.id, {
+    nullable: true,
+    onDelete: 'CASCADE',
+  })
   public histories!: History[];
 }

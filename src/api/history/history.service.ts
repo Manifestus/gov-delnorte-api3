@@ -24,21 +24,28 @@ export class HistoryService {
     history.owner_date_of_purchase = body.owner_date_of_purchase;
     history.status = body.status;
     history.owner_date_of_purchase = body.owner_date_of_purchase;
-    history.property = body.property;
     history.user = body.user;
 
     return this.repository.save(history);
   }
 
-  public updateProperty(id: any, body: CreateHistoryDto): Promise<History> {
-    const history: History = new History();
+  public async updateProperty(
+    id: any,
+    body: CreateHistoryDto,
+  ): Promise<History> {
+    const history = await this.repository
+      .findOne({ where: { id: id } })
+      .then((history) => history);
 
-    history.id = body.id;
-    history.owner_date_of_purchase = body.owner_date_of_purchase;
-    history.status = body.status;
-    history.owner_date_of_purchase = body.owner_date_of_purchase;
-    history.property = body.property;
-    history.user = body.user;
+    body.id ? (history.id = body.id) : null;
+    body.owner_date_of_purchase
+      ? (history.owner_date_of_purchase = body.owner_date_of_purchase)
+      : null;
+    body.status ? (history.status = body.status) : null;
+    body.owner_date_of_purchase
+      ? (history.owner_date_of_purchase = body.owner_date_of_purchase)
+      : null;
+    body.user ? (history.user = body.user) : null;
 
     return this.repository.save(history);
   }

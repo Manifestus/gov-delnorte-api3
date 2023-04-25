@@ -37,6 +37,7 @@ export class History {
         property.owners_id,
         property.cadastral_id_number_from_national_registry;
     },
+    { nullable: true, onDelete: 'CASCADE' },
   )
   public property!: Property;
 
@@ -45,6 +46,7 @@ export class History {
     (user) => {
       user.id;
     },
+    { nullable: true, onDelete: 'CASCADE' },
   )
   public user!: User;
 }
