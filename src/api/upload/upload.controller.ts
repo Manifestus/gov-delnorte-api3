@@ -1,5 +1,6 @@
 import {
   Controller,
+  Param,
   ParseFilePipe,
   Post,
   UploadedFile,
@@ -12,9 +13,10 @@ import { UploadService } from './upload.service';
 export class UploadController {
   constructor(private readonly uploadService: UploadService) {}
 
-  @Post()
+  @Post('/:id')
   @UseInterceptors(FileInterceptor('file'))
   async uploadFile(
+    @Param('id') id: any,
     @UploadedFile(
       new ParseFilePipe({
         validators: [
@@ -25,6 +27,9 @@ export class UploadController {
     )
     file: Express.Multer.File,
   ) {
-    await this.uploadService.upload(file.originalname, file.buffer);
+    await this.uploadService.upload(
+      'property/' + id + '/' + file.originalname,
+      file.buffer,
+    );
   }
 }
