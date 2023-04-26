@@ -40,6 +40,7 @@ export class CreatePropertyDto {
 
   @IsString()
   @IsNotEmpty()
+  @IsOptional()
   public property_picture: string;
 
   //ids

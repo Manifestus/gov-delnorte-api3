@@ -17,10 +17,10 @@ export class Property {
   @PrimaryGeneratedColumn('uuid')
   public id!: string;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public state!: string;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public town!: string;
 
   @Column({ type: 'bigint', nullable: false })
@@ -29,7 +29,7 @@ export class Property {
   @Column({ type: 'bigint', nullable: false })
   public longitude!: number;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public property_address_national_registry!: string;
 
   @Column({ type: 'varchar', length: 120, nullable: true })
@@ -37,52 +37,52 @@ export class Property {
 
   //ids
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public property_id_number_national_registry!: string;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public cadastral_id_number_from_national_registry!: string;
 
   @Column({ type: 'bigint', nullable: false })
   public id_number_municipal_record!: number;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public sequential_number_record!: string;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public volume!: string;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public sheet!: string;
 
   //owner
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public property_owners_according_deeds_municipal_records!: string;
 
   @Column({ type: 'bigint', nullable: false })
   public property_owners_phone_number!: number;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public owners_name_national_registry!: string;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public name_on_file_municipal_taxes!: string;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public municipal_taxes_account_number!: string;
 
   //construction
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public type_of_property!: string;
 
   @Column({ type: 'bigint', nullable: false })
   public total_area_deeds!: number;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public type_of_terrain!: string;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public area!: string;
 
   @Column({ type: 'bigint', nullable: false })
@@ -91,12 +91,12 @@ export class Property {
   @Column({ type: 'bigint', nullable: false })
   public number_floors_property!: number;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public electricity_meter_number!: string;
 
   //paving
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public sidewalk_condition!: string;
 
   @Column({ type: 'bigint', nullable: false })
@@ -124,7 +124,7 @@ export class Property {
   public lineal_meters_property_facing_dirt_street_west!: number;
 
   //streets
-  @Column({ type: 'varchar', length: 120, nullable: true })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public type_street_property_sits!: string;
 
   @Column({ type: 'bigint', nullable: false })
