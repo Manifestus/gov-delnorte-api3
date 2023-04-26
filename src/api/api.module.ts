@@ -6,6 +6,7 @@ import { HistoryModule } from './history/history.module';
 // import { TransactionTypeModule } from './transaction-type/transaction-type.module';
 // import { AuthorizationModule } from './authorization/authorization.module';
 import { UploadModule } from './upload/upload.module';
+import { DownloadModule } from './download/download.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { UploadModule } from './upload/upload.module';
     PropertyModule,
     HistoryModule,
     UploadModule,
+    DownloadModule,
     // //TransactionModule,
     // //TransactionTypeModule,
     // //AuthorizationModule,
