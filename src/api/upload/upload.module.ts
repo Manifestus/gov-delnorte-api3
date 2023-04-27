@@ -9,8 +9,8 @@ import { ConfigService } from '@nestjs/config';
   imports: [
     ThrottlerModule.forRootAsync({
       useFactory: (configService: ConfigService) => ({
-        ttl: configService.getOrThrow('UPLOAD_RATE_TTL'),
-        limit: configService.getOrThrow('UPLOAD_RATE_LIMIT'),
+        // ttl: configService.getOrThrow('UPLOAD_RATE_TTL'),
+        // limit: configService.getOrThrow('UPLOAD_RATE_LIMIT'),
       }),
       inject: [ConfigService],
     }),
