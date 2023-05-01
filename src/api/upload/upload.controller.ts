@@ -32,4 +32,21 @@ export class UploadController {
       file.buffer,
     );
   }
+
+  @Post('/:id')
+  @UseInterceptors(FileInterceptor('file'))
+  async uploadPhoto(
+    @Param('id') id: any,
+    @UploadedFile(
+      new ParseFilePipe({
+        validators: [
+          // new MaxFileSizeValidator({ maxSize: 1000 }),
+          // new FileTypeValidator({ fileType: 'image/jpeg' }),
+        ],
+      }),
+    )
+    file: Express.Multer.File,
+  ) {
+    await this.uploadService.upload('image/' + file.originalname, file.buffer);
+  }
 }
