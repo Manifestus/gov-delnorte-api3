@@ -33,7 +33,7 @@ export class UploadController {
     );
   }
 
-  @Post('/:id')
+  @Post('photo/')
   @UseInterceptors(FileInterceptor('file'))
   async uploadPhoto(
     @Param('id') id: any,
@@ -47,6 +47,6 @@ export class UploadController {
     )
     file: Express.Multer.File,
   ) {
-    await this.uploadService.upload('image/' + file.originalname, file.buffer);
+    await this.uploadService.upload('photo/' + file.originalname, file.buffer);
   }
 }
