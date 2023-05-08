@@ -1,6 +1,7 @@
 import {
-  IsBoolean,
   IsInt,
+  IsLatitude,
+  IsLongitude,
   IsNotEmpty,
   IsOptional,
   IsString,
@@ -18,15 +19,11 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public town: string;
 
-  @IsInt()
-  @Min(0)
-  @Max(99999999)
+  @IsLatitude()
   @IsNotEmpty()
   public latitude: number;
 
-  @IsInt()
-  @Min(0)
-  @Max(99999999)
+  @IsLongitude()
   @IsNotEmpty()
   public longitude: number;
 

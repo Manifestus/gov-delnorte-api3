@@ -23,10 +23,10 @@ export class Property {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public town!: string;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public latitude!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'varchar', length: 120, nullable: false })
   public longitude!: number;
 
   @Column({ type: 'varchar', length: 120, nullable: false })
