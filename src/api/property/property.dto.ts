@@ -19,11 +19,11 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public town: string;
 
-  @IsLatitude()
+  @IsString()
   @IsNotEmpty()
   public latitude: string;
 
-  @IsLongitude()
+  @IsString()
   @IsNotEmpty()
   public longitude: string;
 
