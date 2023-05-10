@@ -24,10 +24,10 @@ export class Property {
   public town!: string;
 
   @Column({ type: 'varchar', length: 120, nullable: false })
-  public latitude!: number;
+  public latitude!: string;
 
   @Column({ type: 'varchar', length: 120, nullable: false })
-  public longitude!: number;
+  public longitude!: string;
 
   @Column({ type: 'varchar', length: 120, nullable: false })
   public property_address_national_registry!: string;
