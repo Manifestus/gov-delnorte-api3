@@ -305,7 +305,7 @@ export class Property {
 
   //Self Created for Control
 
-  @Column({ type: 'boolean', default: true })
+  @Column({ type: 'boolean', default: false })
   public isDeleted = false;
 
   @CreateDateColumn({ type: 'timestamp' })

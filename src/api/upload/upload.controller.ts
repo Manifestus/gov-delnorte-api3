@@ -36,7 +36,6 @@ export class UploadController {
   @Post('photo/')
   @UseInterceptors(FileInterceptor('file'))
   async uploadPhoto(
-    @Param('id') id: any,
     @UploadedFile(
       new ParseFilePipe({
         validators: [

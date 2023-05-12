@@ -1,46 +1,81 @@
 import {
   IsArray,
   IsBoolean,
-  IsEmail,
   IsNotEmpty,
   IsOptional,
   IsString,
-  isArray,
 } from 'class-validator';
+import { Property } from '../property/property.entity';
+import { History } from '../history/history.entity';
+import { Invoice } from '../invoice/invoice.enity';
 
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   public name: string;
 
-  @IsEmail()
+  @IsString()
+  @IsNotEmpty()
+  public user_cnr_id: string;
+
+  @IsString()
+  @IsNotEmpty()
   public email: string;
 
   @IsString()
-  public role: string;
-
-  @IsString({ each: true })
-  public documents!: string[];
-
-  @IsBoolean()
-  public isDeleted: boolean;
-
-  @IsString()
+  @IsNotEmpty()
   public password: string;
 
   @IsString()
-  @IsOptional()
-  public user_cnr_id: string;
+  @IsNotEmpty()
+  public country: string;
 
-  @IsArray()
-  @IsOptional()
-  public properties!: string[];
+  @IsString()
+  @IsNotEmpty()
+  public municipality: string;
 
-  @IsArray()
+  @IsString()
+  @IsNotEmpty()
+  public address: string;
+
+  @IsString()
+  @IsNotEmpty()
   @IsOptional()
-  public histories!: string[];
+  public address2: string;
+
+  @IsString()
+  @IsNotEmpty()
+  public phone: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsOptional()
+  public role: string;
+
+  @IsString({ each: true })
+  @IsOptional()
+  public documents!: string[];
 
   @IsString()
   @IsOptional()
-  public user_cnr_ids!: string;
+  public token: string;
+
+  @IsBoolean()
+  @IsOptional()
+  public isDeleted: boolean;
+
+  @IsArray()
+  @IsString({ each: true })
+  @IsOptional()
+  public invoices: Invoice[];
+
+  @IsArray()
+  @IsString({ each: true })
+  @IsOptional()
+  public properties!: Property[];
+
+  @IsArray()
+  @IsString({ each: true })
+  @IsOptional()
+  public histories!: History[];
 }

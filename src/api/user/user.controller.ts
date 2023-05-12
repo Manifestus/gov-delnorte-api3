@@ -37,6 +37,6 @@ export class UserController {
     @Param('id') id: string,
     @Body() body: CreateUserDto,
   ): Promise<User> {
-    return this.service.updateProperty(id, body);
+    return this.service.updateUser(id, body);
   }
 }
