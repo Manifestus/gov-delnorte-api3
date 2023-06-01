@@ -15,7 +15,7 @@ export class DownloadService {
 
   async download(fileName: string) {
     const command = new GetObjectAclCommand({
-      Bucket: 'gov-sv-perulapia',
+      Bucket: 'gov-delnorte',
       Key: fileName,
     });
     const output = await this.s3Client.send(command);
@@ -25,7 +25,7 @@ export class DownloadService {
 
   async downloadFile(fileName: string) {
     const command = new ListObjectsV2Command({
-      Bucket: 'gov-sv-perulapia',
+      Bucket: 'gov-delnorte',
       Prefix: fileName,
     });
     const output = await this.s3Client.send(command);

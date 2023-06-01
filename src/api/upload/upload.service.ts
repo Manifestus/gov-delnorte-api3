@@ -12,7 +12,7 @@ export class UploadService {
   async upload(fileName: string, file: Buffer) {
     await this.s3Client.send(
       new PutObjectCommand({
-        Bucket: 'gov-sv-perulapia',
+        Bucket: 'gov-delnorte',
         Key: fileName,
         Body: file,
       }),

@@ -7,7 +7,6 @@ import {
   ManyToMany,
   JoinTable,
   OneToMany,
-  JoinColumn,
 } from 'typeorm';
 import { Property } from '../property/property.entity';
 import { History } from '../history/history.entity';
