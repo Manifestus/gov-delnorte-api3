@@ -1,4 +1,5 @@
 import {
+  IsBoolean,
   IsInt,
   IsLatitude,
   IsLongitude,
@@ -480,4 +481,8 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   @IsOptional()
   public working_form_gather_info: string;
+
+  @IsBoolean()
+  @IsOptional()
+  public isDeleted: boolean;
 }

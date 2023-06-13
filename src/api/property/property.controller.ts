@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Inject,
   Param,
@@ -37,6 +38,15 @@ export class PropertyController {
     @Param('id', ParseIntPipe) id: string,
     @Body() body: CreatePropertyDto,
   ): Promise<Property> {
+    return this.service.updateProperty(id, body);
+  }
+
+  @Delete(':id')
+  public async deleteProperty(
+    @Param('id') id: string,
+    @Body() body: CreatePropertyDto,
+  ): Promise<Property> {
+    body.isDeleted = true;
     return this.service.updateProperty(id, body);
   }
 }
