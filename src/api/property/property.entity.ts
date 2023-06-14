@@ -60,8 +60,8 @@ export class Property {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public property_owners_according_deeds_municipal_records!: string;
 
-  @Column({ type: 'decimal', nullable: false })
-  public property_owners_phone_number!: number;
+  @Column({ type: 'varchar', nullable: false })
+  public property_owners_phone_number!: string;
 
   @Column({ type: 'varchar', length: 120, nullable: false })
   public owners_name_national_registry!: string;

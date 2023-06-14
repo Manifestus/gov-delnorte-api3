@@ -75,11 +75,9 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public property_owners_according_deeds_municipal_records: string;
 
-  @IsNumber()
-  @Min(0)
-  @Max(999999999)
+  @IsString()
   @IsNotEmpty()
-  public property_owners_phone_number: number;
+  public property_owners_phone_number: string;
 
   @IsString()
   @IsNotEmpty()
