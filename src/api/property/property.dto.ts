@@ -2,6 +2,7 @@ import {
   IsBoolean,
   IsDecimal,
   IsNotEmpty,
+  IsNumber,
   IsOptional,
   IsString,
   Max,
@@ -52,8 +53,8 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public cadastral_id_number_from_national_registry: string;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public id_number_municipal_record: number;
@@ -75,8 +76,8 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public property_owners_according_deeds_municipal_records: string;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public property_owners_phone_number: number;
@@ -98,8 +99,8 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public type_of_property: string;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public total_area_deeds: number;
@@ -112,14 +113,14 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public area: string;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public construction_area_owner: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public number_floors_property: number;
@@ -133,50 +134,50 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public sidewalk_condition: string;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_north: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_south: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_east: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_west: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_north: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_south: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_east: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_west: number;
@@ -186,33 +187,33 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public type_street_property_sits: string;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public width_street_property_sits_north: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public width_street_property_sits_south: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public width_street_property_sits_east: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public width_street_property_sits_west: number;
 
   //property docs
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   public property_value_according_deeds: number;
@@ -299,8 +300,8 @@ export class CreatePropertyDto {
   public street_cleaning_service: string;
 
   //taxes
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   @IsOptional()
@@ -424,8 +425,8 @@ export class CreatePropertyDto {
   public business_registered_municipal_record: string;
 
   //provisional
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   @IsOptional()
@@ -446,15 +447,15 @@ export class CreatePropertyDto {
   @IsOptional()
   public property_owners_email: string;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   @IsOptional()
   public parcel_number_national_registry: number;
 
-  @IsDecimal()
-  @Min(0)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0.01)
   @Max(99999999.9999)
   @IsNotEmpty()
   @IsOptional()
