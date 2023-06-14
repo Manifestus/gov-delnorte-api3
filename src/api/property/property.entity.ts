@@ -43,7 +43,7 @@ export class Property {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public cadastral_id_number_from_national_registry!: string;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public id_number_municipal_record!: number;
 
   @Column({ type: 'varchar', length: 120, nullable: false })
@@ -60,7 +60,7 @@ export class Property {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public property_owners_according_deeds_municipal_records!: string;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public property_owners_phone_number!: number;
 
   @Column({ type: 'varchar', length: 120, nullable: false })
@@ -76,7 +76,7 @@ export class Property {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public type_of_property!: string;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public total_area_deeds!: number;
 
   @Column({ type: 'varchar', length: 120, nullable: false })
@@ -85,10 +85,10 @@ export class Property {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public area!: string;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public construction_area_owner!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public number_floors_property!: number;
 
   @Column({ type: 'varchar', length: 120, nullable: false })
@@ -99,48 +99,48 @@ export class Property {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public sidewalk_condition!: string;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public lineal_meters_property_facing_paved_street_north!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public lineal_meters_property_facing_paved_street_south!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public lineal_meters_property_facing_paved_street_east!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public lineal_meters_property_facing_paved_street_west!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public lineal_meters_property_facing_dirt_street_north!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public lineal_meters_property_facing_dirt_street_south!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public lineal_meters_property_facing_dirt_street_east!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public lineal_meters_property_facing_dirt_street_west!: number;
 
   //streets
   @Column({ type: 'varchar', length: 120, nullable: false })
   public type_street_property_sits!: string;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public width_street_property_sits_north!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public width_street_property_sits_south!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public width_street_property_sits_east!: number;
 
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public width_street_property_sits_west!: number;
 
   //property docs
-  @Column({ type: 'bigint', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   public property_value_according_deeds!: number;
 
   // @Column({ type: 'boolean' })
@@ -195,7 +195,7 @@ export class Property {
   public street_cleaning_service: string;
 
   //taxes
-  @Column({ type: 'bigint', nullable: true })
+  @Column({ type: 'decimal', nullable: true })
   public municipal_taxes: number;
 
   //weather
@@ -273,7 +273,7 @@ export class Property {
   public business_registered_municipal_record: string;
 
   //provisional
-  @Column({ type: 'bigint', nullable: true })
+  @Column({ type: 'decimal', nullable: true })
   public total_area_property_according_national_registry: number;
 
   @Column({ type: 'varchar', length: 120, nullable: true })
@@ -285,10 +285,10 @@ export class Property {
   @Column({ type: 'varchar', length: 120, nullable: true })
   public property_owners_email: string;
 
-  @Column({ type: 'bigint', nullable: true })
+  @Column({ type: 'decimal', nullable: true })
   public parcel_number_national_registry: number;
 
-  @Column({ type: 'bigint', nullable: true })
+  @Column({ type: 'decimal', nullable: true })
   public map_number_national_registry: number;
 
   @Column({ type: 'varchar', length: 120, nullable: true })
