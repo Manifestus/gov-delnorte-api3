@@ -53,7 +53,7 @@ export class CreatePropertyDto {
   public cadastral_id_number_from_national_registry: string;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public id_number_municipal_record: number;
@@ -77,7 +77,7 @@ export class CreatePropertyDto {
 
   @IsNumber()
   @Min(0)
-  @Max(99999999)
+  @Max(999999999)
   @IsNotEmpty()
   public property_owners_phone_number: number;
 
@@ -99,7 +99,7 @@ export class CreatePropertyDto {
   public type_of_property: string;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public total_area_deeds: number;
@@ -113,13 +113,13 @@ export class CreatePropertyDto {
   public area: string;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public construction_area_owner: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public number_floors_property: number;
@@ -134,49 +134,49 @@ export class CreatePropertyDto {
   public sidewalk_condition: string;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_north: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_south: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_east: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_west: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_north: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_south: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_east: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_west: number;
@@ -187,32 +187,32 @@ export class CreatePropertyDto {
   public type_street_property_sits: string;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public width_street_property_sits_north: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public width_street_property_sits_south: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public width_street_property_sits_east: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public width_street_property_sits_west: number;
 
   //property docs
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   public property_value_according_deeds: number;
@@ -300,7 +300,7 @@ export class CreatePropertyDto {
 
   //taxes
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   @IsOptional()
@@ -425,7 +425,7 @@ export class CreatePropertyDto {
 
   //provisional
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   @IsOptional()
@@ -447,14 +447,14 @@ export class CreatePropertyDto {
   public property_owners_email: string;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   @IsOptional()
   public parcel_number_national_registry: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
+  @Min(0)
   @Max(99999999.9999)
   @IsNotEmpty()
   @IsOptional()
