@@ -1,6 +1,5 @@
 import {
   IsBoolean,
-  IsDecimal,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -76,9 +75,9 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public property_owners_according_deeds_municipal_records: string;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0.01)
-  @Max(99999999.9999)
+  @IsNumber()
+  @Min(0)
+  @Max(99999999)
   @IsNotEmpty()
   public property_owners_phone_number: number;
 
