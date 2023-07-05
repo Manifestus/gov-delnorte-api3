@@ -6,9 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigService } from './shared/typeorm/typeorm.service';
 import { ApiModule } from './api/api.module';
 import { getEnvPath } from './env.helper';
-import { UploadModule } from './api/upload/upload.module';
-import { UploadController } from './api/upload/upload.controller';
-import { UploadService } from './api/upload/upload.service';
+import { StorageService } from './api/storage/storage.service';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
@@ -17,9 +15,8 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
     ConfigModule.forRoot({ envFilePath, isGlobal: true }),
     TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),
     ApiModule,
-    UploadModule,
   ],
-  controllers: [AppController, UploadController],
-  providers: [AppService, UploadService],
+  controllers: [AppController],
+  providers: [AppService, StorageService],
 })
 export class AppModule {}

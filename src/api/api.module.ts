@@ -5,22 +5,29 @@ import { HistoryModule } from './history/history.module';
 // import { TransactionModule } from './transaction/transaction.module';
 // import { TransactionTypeModule } from './transaction-type/transaction-type.module';
 // import { AuthorizationModule } from './authorization/authorization.module';
-import { UploadModule } from './upload/upload.module';
-import { DownloadModule } from './download/download.module';
 import { InvoiceModule } from './invoice/invoice.module';
+import { MediaModule } from './media/media.module';
+import { StorageModule } from './storage/storage.module';
 
 @Module({
   imports: [
     UserModule,
     PropertyModule,
     HistoryModule,
-    UploadModule,
-    DownloadModule,
     InvoiceModule,
+    MediaModule,
+    StorageModule,
     // //TransactionModule,
     // //TransactionTypeModule,
     // //AuthorizationModule,
   ],
-  providers: [UserModule, PropertyModule, HistoryModule, InvoiceModule],
+  providers: [
+    UserModule,
+    PropertyModule,
+    HistoryModule,
+    InvoiceModule,
+    MediaModule,
+    StorageModule,
+  ],
 })
 export class ApiModule {}
