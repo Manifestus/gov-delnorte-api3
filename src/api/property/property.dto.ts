@@ -210,8 +210,6 @@ export class CreatePropertyDto {
 
   //property docs
   @IsNumber({ maxDecimalPlaces: 2 })
-  @Min(0)
-  @Max(99999999.9999)
   @IsNotEmpty()
   public property_value_according_deeds: number;
 
