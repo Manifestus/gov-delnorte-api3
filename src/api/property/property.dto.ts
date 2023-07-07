@@ -418,7 +418,6 @@ export class CreatePropertyDto {
   public mortgage_according_national_registry: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public legal_impediment_sale_according_national_registry: string;
 
