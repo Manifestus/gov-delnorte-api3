@@ -222,77 +222,62 @@ export class CreatePropertyDto {
   //OPTIONAL
   //services
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public electricity: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public running_water: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public internet_service: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public mobil_data: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public road: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public comments: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public water_source: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public sewerage: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public electricity_provider: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public water_provider: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public internet_service_provider: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public mobil_data_provider: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public public_lights: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public trash_collection_service: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public street_cleaning_service: string;
 
@@ -300,124 +285,100 @@ export class CreatePropertyDto {
   @IsNumber({ maxDecimalPlaces: 2 })
   @Min(0)
   @Max(99999999.9999)
-  @IsNotEmpty()
   @IsOptional()
   public municipal_taxes: number;
 
   //weather
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public weather: string;
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public altitude: string;
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public average_temperature: string;
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public average_rainfall: string;
 
   //development
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public developing_potential_property: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public agricultural_activity: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public type_of_agricultural_activity: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public type_of_animal_farming: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public annual_yielding: string;
 
   //safety
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public property_risks: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public safety_level_area: string;
 
   //proximity
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public proximity_education_centers: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public proximity_medical_centers: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public distance_main_city: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public distance_commercial_port: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public distance_airport: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public skilled_labor: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public unskilled_labor: string;
 
   //commercial
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public type_commercial_activity_property: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public commercial_activity_property: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public owner_property_owner_business: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public business_owner_name: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public business_registered_municipal_record: string;
 
@@ -425,41 +386,34 @@ export class CreatePropertyDto {
   @IsNumber({ maxDecimalPlaces: 2 })
   @Min(0)
   @Max(99999999.9999)
-  @IsNotEmpty()
   @IsOptional()
   public total_area_property_according_national_registry: number;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public type_deeds: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public property_reference_according_national_registry: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public property_owners_email: string;
 
   @IsNumber({ maxDecimalPlaces: 2 })
   @Min(0)
   @Max(99999999.9999)
-  @IsNotEmpty()
   @IsOptional()
   public parcel_number_national_registry: number;
 
   @IsNumber({ maxDecimalPlaces: 2 })
   @Min(0)
   @Max(99999999.9999)
-  @IsNotEmpty()
   @IsOptional()
   public map_number_national_registry: number;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public mortgage_according_national_registry: string;
 
@@ -469,12 +423,10 @@ export class CreatePropertyDto {
   public legal_impediment_sale_according_national_registry: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public coworker: string;
 
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   public working_form_gather_info: string;
 
