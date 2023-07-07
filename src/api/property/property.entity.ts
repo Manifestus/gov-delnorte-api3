@@ -4,11 +4,8 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToMany,
-  JoinTable,
   OneToMany,
 } from 'typeorm';
-import { User } from '../user/user.entity';
 import { History } from '../history/history.entity';
 
 @Entity('property')
@@ -32,6 +29,9 @@ export class Property {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public property_address_national_registry!: string;
 
+  @Column({ type: 'varchar', length: 120, nullable: false })
+  public property_address_record!: string;
+
   @Column({ type: 'varchar', length: 120, nullable: true })
   public property_picture!: string;
 
@@ -39,6 +39,9 @@ export class Property {
 
   @Column({ type: 'varchar', length: 120, nullable: false })
   public property_id_number_national_registry!: string;
+
+  @Column({ type: 'varchar', length: 120, nullable: false })
+  public owners_id!: string;
 
   @Column({ type: 'varchar', length: 120, nullable: false })
   public cadastral_id_number_from_national_registry!: string;
@@ -315,12 +318,6 @@ export class Property {
   public updatedAt!: Date;
 
   //Relations
-  @ManyToMany(() => User, (user) => user.id, {
-    nullable: true,
-    onDelete: 'CASCADE',
-  })
-  @JoinTable()
-  public owners_id!: string[];
 
   @OneToMany(() => History, (history) => history.id, {
     nullable: true,
