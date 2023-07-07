@@ -26,12 +26,14 @@ export class PropertyService {
     property.longitude = body.longitude;
     property.property_address_national_registry =
       body.property_address_national_registry;
+    property.property_address_record = body.property_address_record;
     property.property_picture = body.property_picture;
     property.property_id_number_national_registry =
       body.property_id_number_national_registry;
     property.cadastral_id_number_from_national_registry =
       body.cadastral_id_number_from_national_registry;
     property.id_number_municipal_record = body.id_number_municipal_record;
+    property.owners_id = body.owners_id;
     property.sequential_number_record = body.sequential_number_record;
     property.volume = body.volume;
     property.sheet = body.sheet;
@@ -256,6 +258,10 @@ export class PropertyService {
       ? (property.property_owners_according_deeds_municipal_records =
           body.property_owners_according_deeds_municipal_records)
       : null;
+    body.property_address_record
+      ? (property.property_address_record = body.property_address_record)
+      : null;
+    body.owners_id ? (property.owners_id = body.owners_id) : null;
     body.property_owners_phone_number
       ? (property.property_owners_phone_number =
           body.property_owners_phone_number)
