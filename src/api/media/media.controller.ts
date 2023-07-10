@@ -15,7 +15,7 @@ import { Response } from 'express';
 import { StorageFile } from 'src/shared/storage/storage-file';
 import { StorageService } from '../storage/storage.service';
 
-@Controller('media')
+@Controller('upload')
 export class MediaController {
   constructor(private storageService: StorageService) {}
 
@@ -24,16 +24,37 @@ export class MediaController {
     FileInterceptor('file', {
       limits: {
         files: 1,
-        fileSize: 1024 * 1024,
+        fileSize: 1048576 * 1048576,
       },
     }),
   )
-  async uploadMedia(
+  async uploadPropertyPhoto(
     @UploadedFile() file: Express.Multer.File,
-    @Body('mediaId') mediaId: string,
+    @Body('uploadphoto') mediaId: string,
   ) {
     await this.storageService.save(
-      'media/' + mediaId,
+      'uploadphoto/' + mediaId,
+      file.mimetype,
+      file.buffer,
+      [{ mediaId: mediaId }],
+    );
+  }
+
+  @Post()
+  @UseInterceptors(
+    FileInterceptor('file', {
+      limits: {
+        files: 1,
+        fileSize: 1048576 * 1048576,
+      },
+    }),
+  )
+  async uploadPropertyFile(
+    @UploadedFile() file: Express.Multer.File,
+    @Body('uploadfile/') mediaId: string,
+  ) {
+    await this.storageService.save(
+      'property/' + mediaId,
       file.mimetype,
       file.buffer,
       [{ mediaId: mediaId }],
