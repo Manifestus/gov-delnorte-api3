@@ -12,14 +12,13 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
-import { StorageFile } from 'src/shared/storage/storage-file';
 import { StorageService } from '../storage/storage.service';
 
 @Controller('upload')
 export class MediaController {
   constructor(private storageService: StorageService) {}
 
-  @Post()
+  @Post('uploadphoto')
   @UseInterceptors(
     FileInterceptor('file', {
       limits: {
@@ -28,19 +27,17 @@ export class MediaController {
       },
     }),
   )
-  async uploadPropertyPhoto(
-    @UploadedFile() file: Express.Multer.File,
-    @Body('uploadphoto') mediaId: string,
-  ) {
+  async uploadPropertyPhoto(@UploadedFile() file: Express.Multer.File) {
     await this.storageService.save(
-      'uploadphoto/' + mediaId,
+      file.originalname,
+      `propertyphoto/` + file.originalname,
       file.mimetype,
       file.buffer,
-      [{ mediaId: mediaId }],
+      [{ mediaId: file.originalname }],
     );
   }
 
-  @Post()
+  @Post('/:id')
   @UseInterceptors(
     FileInterceptor('file', {
       limits: {
@@ -51,21 +48,22 @@ export class MediaController {
   )
   async uploadPropertyFile(
     @UploadedFile() file: Express.Multer.File,
-    @Body('uploadfile/') mediaId: string,
+    @Param('id') id: string,
   ) {
     await this.storageService.save(
-      'property/' + mediaId,
+      file.originalname,
+      `propertyfiles/${id}/` + file.originalname,
       file.mimetype,
       file.buffer,
-      [{ mediaId: mediaId }],
+      [{ mediaId: file.originalname }],
     );
   }
 
-  @Get('/:mediaId')
-  async downloadMedia(@Param('mediaId') mediaId: string, @Res() res: Response) {
-    let storageFile: StorageFile;
+  @Get('propertyfiles/:id')
+  async downloadPhoto(@Param('id') id: string, @Res() res: Response) {
+    let storageFile;
     try {
-      storageFile = await this.storageService.get('media/' + mediaId);
+      storageFile = await this.storageService.listFiles(id);
     } catch (e) {
       if (e.message.toString().includes('No such object')) {
         throw new NotFoundException('image not found');
@@ -73,8 +71,10 @@ export class MediaController {
         throw new ServiceUnavailableException('internal error');
       }
     }
-    res.setHeader('Content-Type', storageFile.contentType);
-    res.setHeader('Cache-Control', 'max-age=60d');
-    res.end(storageFile.buffer);
+    const fileString = [];
+    storageFile.forEach((element) => {
+      fileString.push(element.name.split('/')[2]);
+    });
+    res.json(storageFile);
   }
 }

@@ -1,6 +1,5 @@
 import { DownloadResponse, Storage } from '@google-cloud/storage';
-import { Injectable } from '@nestjs/common';
-import StorageConfig from 'src/shared/storage/storage-config';
+import { Injectable, Logger } from '@nestjs/common';
 import { StorageFile } from 'src/shared/storage/storage-file';
 
 @Injectable()
@@ -21,6 +20,7 @@ export class StorageService {
   }
 
   async save(
+    destFileName: string,
     path: string,
     contentType: string,
     media: Buffer,
@@ -32,6 +32,8 @@ export class StorageService {
     stream.on('finish', async () => {
       return await file.setMetadata({
         metadata: object,
+        contentType: contentType,
+        destFileName: destFileName,
       });
     });
     stream.end(media);
@@ -75,5 +77,12 @@ export class StorageService {
     );
     storageFile.contentType = storageFile.metadata.get('contentType');
     return storageFile;
+  }
+
+  async listFiles(id: string) {
+    const [files] = await this.storage
+      .bucket(this.bucket)
+      .getFiles({ prefix: `propertyfiles/${id}` });
+    return files;
   }
 }
