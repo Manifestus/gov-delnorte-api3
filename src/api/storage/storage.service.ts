@@ -1,5 +1,5 @@
 import { DownloadResponse, Storage } from '@google-cloud/storage';
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { StorageFile } from 'src/shared/storage/storage-file';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class StorageService {
       projectId: process.env.PROJECT_ID,
       credentials: {
         client_email: process.env.CLIENT_EMAIL,
-        private_key: process.env.PRIVATE_KEY,
+        private_key: process.env.private_key,
       },
     });
 
