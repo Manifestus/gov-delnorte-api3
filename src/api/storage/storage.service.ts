@@ -8,16 +8,15 @@ export class StorageService {
   private bucket: string;
 
   constructor() {
-    process.env.private_key.replace(/\\n/g, '\n');
     this.storage = new Storage({
-      projectId: process.env.projectId,
+      projectId: process.env.PROJECT_ID,
       credentials: {
-        client_email: process.env.client_email,
-        private_key: process.env.private_key,
+        client_email: process.env.CLIENT_EMAIL,
+        private_key: process.env.PRIVATE_KEY,
       },
     });
 
-    this.bucket = process.env.mediaBucket;
+    this.bucket = process.env.STORAGE_MEDIA_BUCKET;
   }
 
   async save(
