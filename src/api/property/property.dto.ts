@@ -1,5 +1,6 @@
 import {
   IsBoolean,
+  IsDecimal,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -121,35 +122,35 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public sidewalk_condition: string;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_north: number;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_south: number;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_east: number;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public lineal_meters_property_facing_paved_street_west: number;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_north: number;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_south: number;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_east: number;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public lineal_meters_property_facing_dirt_street_west: number;
 
@@ -158,24 +159,24 @@ export class CreatePropertyDto {
   @IsNotEmpty()
   public type_street_property_sits: string;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public width_street_property_sits_north: number;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public width_street_property_sits_south: number;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public width_street_property_sits_east: number;
 
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public width_street_property_sits_west: number;
 
   //property docs
-  @IsNumber({ maxDecimalPlaces: 2 })
+  @IsDecimal({ decimal_digits: '1' })
   @IsNotEmpty()
   public property_value_according_deeds: number;
 
