@@ -1,7 +1,7 @@
 import {
-  Body,
   Controller,
   Get,
+  Logger,
   NotFoundException,
   Param,
   Post,
@@ -13,6 +13,8 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
 import { StorageService } from '../storage/storage.service';
+import { StorageFile } from 'src/shared/storage/storage-file';
+import { File } from '@google-cloud/storage';
 
 @Controller('upload')
 export class MediaController {
@@ -61,7 +63,7 @@ export class MediaController {
 
   @Get('propertyfiles/:id')
   async downloadPhoto(@Param('id') id: string, @Res() res: Response) {
-    let storageFile;
+    let storageFile: File[];
     try {
       storageFile = await this.storageService.listFiles(id);
     } catch (e) {
@@ -71,10 +73,10 @@ export class MediaController {
         throw new ServiceUnavailableException('internal error');
       }
     }
-    const fileString = [];
-    storageFile.forEach((element) => {
-      fileString.push(element.name.split('/')[2]);
+    const list = [];
+    storageFile.map((file) => {
+      list.push(file.metadata);
     });
-    res.json(storageFile);
+    res.json(list);
   }
 }
