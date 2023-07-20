@@ -37,7 +37,7 @@ export class MediaController {
     );
   }
 
-  @Post('/:id')
+  @Post('propertyfiles/:id')
   @UseInterceptors(
     FileInterceptor('file', {
       limits: {
