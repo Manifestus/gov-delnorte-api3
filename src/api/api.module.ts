@@ -8,15 +8,20 @@ import { HistoryModule } from './history/history.module';
 import { InvoiceModule } from './invoice/invoice.module';
 import { MediaModule } from './media/media.module';
 import { StorageModule } from './storage/storage.module';
+import { TransactionController } from './transaction/transaction.controller';
+import { TransactionModule } from './transaction/transaction.module';
+import { BearerModule } from './bearer/bearer.module';
 
 @Module({
   imports: [
     UserModule,
     PropertyModule,
+    TransactionModule,
     HistoryModule,
     InvoiceModule,
     MediaModule,
     StorageModule,
+    BearerModule,
     // //TransactionModule,
     // //TransactionTypeModule,
     // //AuthorizationModule,
@@ -28,6 +33,8 @@ import { StorageModule } from './storage/storage.module';
     InvoiceModule,
     MediaModule,
     StorageModule,
+    TransactionModule,
   ],
+  controllers: [],
 })
 export class ApiModule {}

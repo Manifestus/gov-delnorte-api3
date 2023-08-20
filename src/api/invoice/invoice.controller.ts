@@ -32,11 +32,11 @@ export class InvoiceController {
     return this.service.createInvoice(body);
   }
 
-  @Patch('/:id')
-  public async updateProperty(
-    @Param('id') id: string,
-    @Body() body: CreateInvoiceDto,
-  ): Promise<Invoice> {
-    return this.service.updateInvoice(id, body);
-  }
+  // @Patch('/:id')
+  // public async updateProperty(
+  //   @Param('id') id: string,
+  //   @Body() body: CreateInvoiceDto,
+  // ): Promise<Invoice> {
+  //   return this.service.updateInvoice(id, body);
+  // }
 }

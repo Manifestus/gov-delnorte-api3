@@ -24,7 +24,7 @@ export class HistoryService {
     history.owner_date_of_purchase = body.owner_date_of_purchase;
     history.status = body.status;
     history.owner_date_of_purchase = body.owner_date_of_purchase;
-    history.user = body.user;
+    // history.user = body.user;
 
     return this.repository.save(history);
   }
@@ -45,7 +45,7 @@ export class HistoryService {
     body.owner_date_of_purchase
       ? (history.owner_date_of_purchase = body.owner_date_of_purchase)
       : null;
-    body.user ? (history.user = body.user) : null;
+    // body.user ? (history.user = body.user) : null;
 
     return this.repository.save(history);
   }

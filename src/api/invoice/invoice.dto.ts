@@ -1,18 +1,9 @@
-import {
-  ArrayMinSize,
-  IsArray,
-  IsBoolean,
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-} from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { User } from '../user/user.entity';
+import { Transaction } from '../transaction/transaction.entity';
+import { Property } from '../property/property.entity';
 
 export class CreateInvoiceDto {
-  @IsString()
-  @IsNotEmpty()
-  public currency: string;
-
   @IsString()
   @IsNotEmpty()
   public number: string;
@@ -28,12 +19,6 @@ export class CreateInvoiceDto {
   @IsString()
   @IsOptional()
   public dueDate: string;
-
-  @IsArray()
-  @IsString({ each: true })
-  @ArrayMinSize(6)
-  @IsOptional()
-  public items!: string[];
 
   @IsString()
   @IsOptional()
@@ -53,4 +38,12 @@ export class CreateInvoiceDto {
   @IsString()
   @IsNotEmpty()
   public user: User;
+
+  @IsString()
+  @IsNotEmpty()
+  public transaction: Transaction;
+
+  @IsString()
+  @IsNotEmpty()
+  public property: Property;
 }

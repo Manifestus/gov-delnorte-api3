@@ -67,11 +67,6 @@ export class CreateUserDto {
   @IsArray()
   @IsString({ each: true })
   @IsOptional()
-  public invoices: Invoice[];
-
-  @IsArray()
-  @IsString({ each: true })
-  @IsOptional()
   public properties!: Property[];
 
   @IsArray()

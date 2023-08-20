@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { Property } from '../property/property.entity';
 import { User } from '../user/user.entity';
+import { Transaction } from '../transaction/transaction.entity';
 
 @Entity('history')
 export class History {
@@ -35,11 +36,11 @@ export class History {
     (property) => {
       property.id,
         property.owners_id,
-        property.cadastral_id_number_from_national_registry;
+        property.property_id_number_national_registry;
     },
     { nullable: true, onDelete: 'CASCADE' },
   )
-  public property!: Property;
+  public property!: Property[];
 
   @ManyToOne(
     () => User,
@@ -48,5 +49,14 @@ export class History {
     },
     { nullable: true, onDelete: 'CASCADE' },
   )
-  public user!: User;
+  public user!: User[];
+
+  @ManyToOne(
+    () => Transaction,
+    (transaction) => {
+      transaction.id;
+    },
+    { nullable: true, onDelete: 'CASCADE' },
+  )
+  public transaction!: Transaction[];
 }

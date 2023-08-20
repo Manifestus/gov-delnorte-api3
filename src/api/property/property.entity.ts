@@ -5,8 +5,11 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   OneToMany,
+  OneToOne,
 } from 'typeorm';
 import { History } from '../history/history.entity';
+import { Transaction } from '../transaction/transaction.entity';
+import { Invoice } from '../invoice/invoice.enity';
 
 @Entity('property')
 export class Property {
@@ -324,4 +327,10 @@ export class Property {
     onDelete: 'CASCADE',
   })
   public history!: History[];
+
+  @OneToOne(() => Transaction, (Transaction) => Transaction)
+  Transaction: Transaction;
+
+  @OneToOne(() => Invoice, (Invoice) => Invoice)
+  Invoice: Invoice;
 }

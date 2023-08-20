@@ -5,7 +5,6 @@ import {
   Get,
   Inject,
   Param,
-  ParseIntPipe,
   Patch,
   Post,
 } from '@nestjs/common';
@@ -35,7 +34,7 @@ export class PropertyController {
 
   @Patch(':id')
   public async updateProperty(
-    @Param('id', ParseIntPipe) id: string,
+    @Param('id') id: string,
     @Body() body: CreatePropertyDto,
   ): Promise<Property> {
     return this.service.updateProperty(id, body);

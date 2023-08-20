@@ -1,7 +1,6 @@
 import {
   Controller,
   Get,
-  Logger,
   NotFoundException,
   Param,
   Post,
@@ -13,7 +12,6 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
 import { StorageService } from '../storage/storage.service';
-import { StorageFile } from 'src/shared/storage/storage-file';
 import { File } from '@google-cloud/storage';
 
 @Controller('upload')

@@ -20,40 +20,39 @@ export class InvoiceService {
   public async createInvoice(body: CreateInvoiceDto): Promise<Invoice> {
     const invoice: Invoice = new Invoice();
 
-    invoice.currency = body.currency;
     invoice.number = body.number;
     invoice.issueDate = body.issueDate;
     invoice.status = body.status;
     invoice.user = body.user;
+    invoice.property = body.property;
+    invoice.transaction = body.transaction;
     body.dueDate ? (invoice.dueDate = body.dueDate) : null;
-    body.items ? (invoice.items = body.items) : null;
     body.subtotalAmount ? (invoice.subtotalAmount = body.subtotalAmount) : null;
     body.taxAmount ? (invoice.taxAmount = body.taxAmount) : null;
     body.totalAmount ? (invoice.totalAmount = body.totalAmount) : null;
+    invoice.isDeleted = false;
 
     return this.repository.save(invoice);
   }
 
-  public async updateInvoice(
-    id: any,
-    body: CreateInvoiceDto,
-  ): Promise<Invoice> {
-    const invoice = await this.repository
-      .findOne({ where: { id: id } })
-      .then((invoice) => invoice);
+  // public async updateInvoice(
+  //   id: any,
+  //   body: CreateInvoiceDto,
+  // ): Promise<Invoice> {
+  //   const invoice = await this.repository
+  //     .findOne({ where: { id: id } })
+  //     .then((invoice) => invoice);
 
-    body.currency ? (invoice.currency = body.currency) : null;
-    body.number ? (invoice.number = body.number) : null;
-    body.issueDate ? (invoice.issueDate = body.issueDate) : null;
+  //   body.number ? (invoice.number = body.number) : null;
+  //   body.issueDate ? (invoice.issueDate = body.issueDate) : null;
 
-    body.dueDate ? (invoice.dueDate = body.dueDate) : null;
-    body.items ? (invoice.items = body.items) : null;
-    body.subtotalAmount ? (invoice.subtotalAmount = body.subtotalAmount) : null;
-    body.taxAmount ? (invoice.taxAmount = body.taxAmount) : null;
-    body.totalAmount ? (invoice.totalAmount = body.totalAmount) : null;
-    body.isDeleted ? (invoice.isDeleted = body.isDeleted) : null;
-    invoice.updatedAt = new Date();
+  //   body.dueDate ? (invoice.dueDate = body.dueDate) : null;
+  //   body.subtotalAmount ? (invoice.subtotalAmount = body.subtotalAmount) : null;
+  //   body.taxAmount ? (invoice.taxAmount = body.taxAmount) : null;
+  //   body.totalAmount ? (invoice.totalAmount = body.totalAmount) : null;
+  //   body.isDeleted ? (invoice.isDeleted = body.isDeleted) : null;
+  //   invoice.updatedAt = new Date();
 
-    return this.repository.save(invoice);
-  }
+  //   return this.repository.save(invoice);
+  // }
 }

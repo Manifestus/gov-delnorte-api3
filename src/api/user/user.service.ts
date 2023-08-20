@@ -32,7 +32,6 @@ export class UserService {
     body.documents ? (user.documents = body.documents) : null;
     body.address2 ? (user.address2 = body.address2) : null;
     body.token ? (user.token = body.token) : null;
-    body.invoices ? (user.invoices = body.invoices) : null;
     body.properties ? (user.properties = body.properties) : null;
     body.histories ? (user.histories = body.histories) : null;
 
@@ -56,7 +55,6 @@ export class UserService {
     body.documents ? (user.documents = body.documents) : null;
     body.address2 ? (user.address2 = body.address2) : null;
     body.token ? (user.token = body.token) : null;
-    body.invoices ? (user.invoices = body.invoices) : null;
     body.properties ? (user.properties = body.properties) : null;
     body.histories ? (user.histories = body.histories) : null;
     body.municipality ? (user.municipality = body.municipality) : null;

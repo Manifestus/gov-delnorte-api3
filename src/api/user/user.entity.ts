@@ -7,10 +7,12 @@ import {
   ManyToMany,
   JoinTable,
   OneToMany,
+  OneToOne,
 } from 'typeorm';
 import { Property } from '../property/property.entity';
 import { History } from '../history/history.entity';
 import { Invoice } from '../invoice/invoice.enity';
+import { Transaction } from '../transaction/transaction.entity';
 
 @Entity('user')
 export class User {
@@ -76,9 +78,12 @@ export class User {
   })
   public histories!: History[];
 
-  @OneToMany(() => Invoice, (invoice) => invoice.user, {
+  @OneToOne(() => Invoice, (invoice) => invoice.user, {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  public invoices!: Invoice[];
+  public invoices!: Invoice;
+
+  @OneToOne(() => Transaction, (Transaction) => Transaction.user_cnr_id, {})
+  public Transaction!: Transaction;
 }
