@@ -13,8 +13,15 @@ export class InvoiceService {
     return this.repository.find();
   }
 
-  public async getInvoice(id: 'uuid'): Promise<Invoice> {
-    return this.repository.findOne({ where: { id: id, isDeleted: false } });
+  public async getInvoice(id: any): Promise<Invoice[]> {
+    return this.repository.find({
+      relations: [
+        'user_cnr_id',
+        'property_id_number_national_registry',
+        'card_information',
+      ],
+      where: { user: { id: id } },
+    });
   }
 
   public async createInvoice(body: CreateInvoiceDto): Promise<Invoice> {
