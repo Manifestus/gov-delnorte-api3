@@ -24,7 +24,6 @@ export class InvoiceService {
     const invoice: Invoice = new Invoice();
 
     invoice.number = body.number;
-    invoice.issueDate = body.issueDate;
     invoice.status = body.status;
     invoice.user = body.user;
     invoice.property = body.property;

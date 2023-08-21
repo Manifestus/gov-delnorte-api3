@@ -23,8 +23,8 @@ export class Invoice {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public status!: string;
 
-  @Column({ type: 'bigint', nullable: false })
-  public issueDate!: number;
+  @CreateDateColumn({ type: 'timestamp' })
+  public issueDate!: Date;
 
   @Column({ type: 'bigint', nullable: true })
   public dueDate: number;

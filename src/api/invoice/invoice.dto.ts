@@ -20,10 +20,6 @@ export class CreateInvoiceDto {
   public status: string;
 
   @IsInt()
-  @IsNotEmpty()
-  public issueDate: number;
-
-  @IsInt()
   @IsOptional()
   public dueDate: number;
 
