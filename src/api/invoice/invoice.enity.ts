@@ -23,20 +23,20 @@ export class Invoice {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public status!: string;
 
-  @Column({ type: 'varchar', length: 120, nullable: false })
-  public issueDate!: string;
+  @Column({ type: 'int', nullable: false })
+  public issueDate!: number;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
-  public dueDate: string;
+  @Column({ type: 'int', nullable: true })
+  public dueDate: number;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
-  public subtotalAmount!: string;
+  @Column({ type: 'int', nullable: true })
+  public subtotalAmount!: number;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
-  public taxAmount!: string;
+  @Column({ type: 'int', nullable: true })
+  public taxAmount!: number;
 
-  @Column({ type: 'varchar', length: 120, nullable: true })
-  public totalAmount!: string;
+  @Column({ type: 'int', nullable: true })
+  public totalAmount!: number;
 
   @Column({ type: 'boolean', default: false })
   public isDeleted = false;

@@ -7,7 +7,6 @@ import {
 } from 'class-validator';
 import { Property } from '../property/property.entity';
 import { History } from '../history/history.entity';
-import { Invoice } from '../invoice/invoice.enity';
 
 export class CreateUserDto {
   @IsString()

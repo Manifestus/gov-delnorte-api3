@@ -1,4 +1,10 @@
-import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 import { User } from '../user/user.entity';
 import { Transaction } from '../transaction/transaction.entity';
 import { Property } from '../property/property.entity';
@@ -12,25 +18,25 @@ export class CreateInvoiceDto {
   @IsNotEmpty()
   public status: string;
 
-  @IsString()
+  @IsNumber()
   @IsNotEmpty()
-  public issueDate: string;
+  public issueDate: number;
 
-  @IsString()
+  @IsNumber()
   @IsOptional()
-  public dueDate: string;
+  public dueDate: number;
 
-  @IsString()
+  @IsNumber()
   @IsOptional()
-  public subtotalAmount: string;
+  public subtotalAmount: number;
 
-  @IsString()
+  @IsNumber()
   @IsOptional()
-  public taxAmount: string;
+  public taxAmount: number;
 
-  @IsString()
+  @IsNumber()
   @IsOptional()
-  public totalAmount: string;
+  public totalAmount: number;
 
   @IsBoolean()
   public isDeleted: boolean;
