@@ -5,7 +5,6 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   OneToMany,
-  OneToOne,
 } from 'typeorm';
 import { History } from '../history/history.entity';
 import { Transaction } from '../transaction/transaction.entity';
@@ -328,9 +327,9 @@ export class Property {
   })
   public history!: History[];
 
-  @OneToOne(() => Transaction, (Transaction) => Transaction)
+  @OneToMany(() => Transaction, (Transaction) => Transaction)
   Transaction: Transaction;
 
-  @OneToOne(() => Invoice, (Invoice) => Invoice)
+  @OneToMany(() => Invoice, (Invoice) => Invoice)
   Invoice: Invoice;
 }

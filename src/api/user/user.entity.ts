@@ -6,8 +6,8 @@ import {
   UpdateDateColumn,
   ManyToMany,
   JoinTable,
+  ManyToOne,
   OneToMany,
-  OneToOne,
 } from 'typeorm';
 import { Property } from '../property/property.entity';
 import { History } from '../history/history.entity';
@@ -72,18 +72,18 @@ export class User {
   @JoinTable()
   public properties!: Property[];
 
-  @OneToMany(() => History, (history) => history.id, {
+  @ManyToOne(() => History, (history) => history.id, {
     nullable: true,
     onDelete: 'CASCADE',
   })
-  public histories!: History[];
+  public histories!: History;
 
-  @OneToOne(() => Invoice, (invoice) => invoice.user, {
+  @OneToMany(() => Invoice, (invoice) => invoice.user, {
     nullable: true,
     onDelete: 'SET NULL',
   })
   public invoices!: Invoice;
 
-  @OneToOne(() => Transaction, (Transaction) => Transaction.user_cnr_id, {})
+  @OneToMany(() => Transaction, (Transaction) => Transaction.user_cnr_id, {})
   public Transaction!: Transaction;
 }

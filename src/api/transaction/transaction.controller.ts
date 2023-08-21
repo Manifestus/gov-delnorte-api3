@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Param, Post } from '@nestjs/common';
 import { CreateTransactionDto } from './transaction.dto';
 import { TransactionService } from './transaction.service';
 import axios from 'axios';
@@ -8,11 +8,17 @@ import { operation_information } from './operation.transaction';
 import { terminal_information } from './terminal.transation';
 import { User } from '../user/user.entity';
 import { Property } from '../property/property.entity';
+import { Transaction } from './transaction.entity';
 
 @Controller('transaction')
 export class TransactionController {
   @Inject(TransactionService)
   private readonly service: TransactionService;
+
+  @Get(':id')
+  public async getProperty(@Param('id') id: string): Promise<Transaction[]> {
+    return this.service.getTransaction(id);
+  }
 
   @Post()
   public async createTransaction(@Body() body) {

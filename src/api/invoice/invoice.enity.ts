@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
   OneToOne,
   JoinColumn,
+  ManyToOne,
 } from 'typeorm';
 import { User } from '../user/user.entity';
 import { Transaction } from '../transaction/transaction.entity';
@@ -46,21 +47,21 @@ export class Invoice {
   @UpdateDateColumn({ type: 'timestamp' })
   public updatedAt: Date;
 
-  @OneToOne(() => User, (User) => User.user_cnr_id, {
+  @ManyToOne(() => User, (User) => User.user_cnr_id, {
     nullable: false,
     onDelete: 'CASCADE',
   })
   @JoinColumn()
   public user!: User;
 
-  @OneToOne(() => Transaction, (Transaction) => Transaction.id, {
+  @OneToOne(() => Transaction, (Transaction) => Transaction.card_information, {
     nullable: false,
     onDelete: 'CASCADE',
   })
   @JoinColumn()
   transaction: Transaction;
 
-  @OneToOne(
+  @ManyToOne(
     () => Property,
     (Property) => Property.property_id_number_national_registry,
     {

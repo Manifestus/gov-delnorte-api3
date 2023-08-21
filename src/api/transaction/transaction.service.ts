@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Transaction } from './transaction.entity';
-import { terminal_information } from './terminal.transation';
 import { CreateTransactionDto } from './transaction.dto';
 
 @Injectable()
@@ -10,16 +9,25 @@ export class TransactionService {
   @InjectRepository(Transaction)
   private readonly repository: Repository<Transaction>;
 
-  public async getTransactions(): Promise<Transaction[]> {
-    return this.repository.find();
-  }
-
-  public async getTransaction(
-    terminal_information: terminal_information,
-  ): Promise<Transaction> {
-    return this.repository.findOne({
-      where: { terminal_information: terminal_information },
+  public getTransaction(id: any): Promise<Transaction[]> {
+    const transaction = this.repository.find({
+      relations: ['user_cnr_id', 'property_id_number_national_registry'],
+      where: { user_cnr_id: { id: id } },
     });
+
+    const finalTransaction = transaction.then((data) => {
+      data.map((item) => {
+        item.card_information.card_number =
+          item.card_information.card_number.substring(12, 16);
+
+        item.card_information.card_expiry_date = '****';
+
+        item.card_information.card_cvv = '***';
+      });
+      return data;
+    });
+
+    return finalTransaction;
   }
 
   public async createTransaction(

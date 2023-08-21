@@ -1,9 +1,10 @@
 import {
   Entity,
   Column,
-  OneToOne,
+  ManyToOne,
   JoinColumn,
   PrimaryGeneratedColumn,
+  OneToOne,
 } from 'typeorm';
 import { card_information } from './card.transaction';
 import { terminal_information } from './terminal.transation';
@@ -26,14 +27,14 @@ export class Transaction {
   @Column({ type: 'json', nullable: false })
   public operation_information!: operation_information;
 
-  @OneToOne(() => User, (User) => User.user_cnr_id, {
+  @ManyToOne(() => User, (User) => User.user_cnr_id, {
     nullable: false,
     onDelete: 'CASCADE',
   })
   @JoinColumn()
   user_cnr_id: User;
 
-  @OneToOne(
+  @ManyToOne(
     () => Property,
     (Property) => Property.property_id_number_national_registry,
     {

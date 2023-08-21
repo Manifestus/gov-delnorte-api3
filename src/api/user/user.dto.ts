@@ -72,5 +72,5 @@ export class CreateUserDto {
   @IsArray()
   @IsString({ each: true })
   @IsOptional()
-  public histories!: History[];
+  public histories!: History;
 }
