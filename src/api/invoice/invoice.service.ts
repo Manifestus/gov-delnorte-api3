@@ -15,11 +15,7 @@ export class InvoiceService {
 
   public async getInvoice(id: any): Promise<Invoice[]> {
     return this.repository.find({
-      relations: [
-        'user_cnr_id',
-        'property_id_number_national_registry',
-        'card_information',
-      ],
+      relations: ['user', 'property', 'transaction'],
       where: { user: { id: id } },
     });
   }

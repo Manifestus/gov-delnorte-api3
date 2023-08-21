@@ -1,12 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Inject,
-  Param,
-  Post,
-  Patch,
-} from '@nestjs/common';
+import { Body, Controller, Get, Inject, Param, Post } from '@nestjs/common';
 import { InvoiceService } from './invoice.service';
 import { Invoice } from './invoice.enity';
 import { CreateInvoiceDto } from './invoice.dto';
@@ -17,8 +9,7 @@ export class InvoiceController {
   private readonly service: InvoiceService;
 
   @Get('/:id')
-  public async getUser(@Param('id') id: any): Promise<Invoice> {
-    console.log('id', id);
+  public async getUser(@Param('id') id: any): Promise<Invoice[]> {
     return this.service.getInvoice(id);
   }
 
