@@ -23,10 +23,10 @@ export class Invoice {
   @Column({ type: 'varchar', length: 120, nullable: false })
   public status!: string;
 
-  @Column({ type: 'int', nullable: false })
+  @Column({ type: 'bigint', nullable: false })
   public issueDate!: number;
 
-  @Column({ type: 'int', nullable: true })
+  @Column({ type: 'bigint', nullable: true })
   public dueDate: number;
 
   @Column({ type: 'int', nullable: true })

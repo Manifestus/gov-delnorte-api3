@@ -1,5 +1,6 @@
 import {
   IsBoolean,
+  IsInt,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -18,11 +19,11 @@ export class CreateInvoiceDto {
   @IsNotEmpty()
   public status: string;
 
-  @IsNumber()
+  @IsInt()
   @IsNotEmpty()
   public issueDate: number;
 
-  @IsNumber()
+  @IsInt()
   @IsOptional()
   public dueDate: number;
 
