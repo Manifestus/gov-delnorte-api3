@@ -92,6 +92,10 @@ export class TransactionController {
 
     if (transactionObject.data.card_information) {
       cardInformation = transactionObject.data.card_information;
+      cardInformation.card_number = cardInformation.card_number.substring(
+        12,
+        16,
+      );
     }
 
     if (transactionObject.data.operation_information) {
@@ -99,7 +103,7 @@ export class TransactionController {
     }
 
     if (transactionObject.data.terminal_information) {
-      terminalInformation = transactionObject.data.operation_information;
+      terminalInformation = transactionObject.data.terminal_information;
     }
 
     const transactionDto: CreateTransactionDto = {
