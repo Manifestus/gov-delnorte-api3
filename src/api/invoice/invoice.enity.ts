@@ -29,13 +29,13 @@ export class Invoice {
   @Column({ type: 'bigint', nullable: true })
   public dueDate: number;
 
-  @Column({ type: 'int', nullable: true })
+  @Column({ type: 'decimal', precision: 6, scale: 2, nullable: true })
   public subtotalAmount!: number;
 
-  @Column({ type: 'int', nullable: true })
+  @Column({ type: 'decimal', precision: 6, scale: 2, nullable: true })
   public taxAmount!: number;
 
-  @Column({ type: 'int', nullable: true })
+  @Column({ type: 'decimal', precision: 6, scale: 2, nullable: true })
   public totalAmount!: number;
 
   @Column({ type: 'boolean', default: false })
