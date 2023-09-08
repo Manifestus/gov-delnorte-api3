@@ -18,7 +18,7 @@ export class PrerecordController {
   private readonly service: PrerecordService;
 
   @Get(':id')
-  public async getPrerecord(@Param('id') id: string): Promise<Prerecord> {
+  public async getPrerecord(@Param('id') id: string): Promise<Prerecord[]> {
     return this.service.getPrerecord(id);
   }
 

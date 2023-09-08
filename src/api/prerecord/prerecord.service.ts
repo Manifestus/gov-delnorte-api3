@@ -13,7 +13,7 @@ export class PrerecordService {
     return this.repository.find();
   }
 
-  public async getPrerocord(id: any): Promise<Prerecord[]> {
+  public async getPrerecord(id: any): Promise<Prerecord[]> {
     return this.repository.find({
       relations: ['property'],
       where: { propertyId: { id: id } },
@@ -27,6 +27,7 @@ export class PrerecordService {
     prerecord.date = body.date;
     prerecord.cost = body.cost;
     prerecord.voucher = body.voucher;
+    prerecord.propertyId = body.propertyId;
 
     return this.repository.save(prerecord);
   }
@@ -43,6 +44,7 @@ export class PrerecordService {
     body.date ? (user.date = body.date) : null;
     body.cost ? (user.cost = body.cost) : null;
     body.voucher ? (user.voucher = body.voucher) : null;
+    body.propertyId ? (user.propertyId = body.propertyId) : null;
     user.updatedAt = new Date();
 
     return this.repository.save(user);

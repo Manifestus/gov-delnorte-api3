@@ -26,7 +26,7 @@ export class CreatePrerecordDto {
 
   @IsString()
   @IsNotEmpty()
-  public properties!: Property;
+  public propertyId!: Property;
 
   @IsBoolean()
   @IsOptional()
