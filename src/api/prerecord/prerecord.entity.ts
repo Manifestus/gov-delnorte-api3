@@ -45,5 +45,5 @@ export class Prerecord {
     },
   )
   @JoinColumn()
-  propertyId: Property;
+  property: Property;
 }

@@ -16,7 +16,7 @@ export class PrerecordService {
   public async getPrerecord(id: any): Promise<Prerecord[]> {
     return this.repository.find({
       relations: ['property'],
-      where: { propertyId: { id: id } },
+      where: { property: { id: id } },
     });
   }
 
@@ -27,7 +27,7 @@ export class PrerecordService {
     prerecord.date = body.date;
     prerecord.cost = body.cost;
     prerecord.voucher = body.voucher;
-    prerecord.propertyId = body.propertyId;
+    prerecord.property = body.property;
 
     return this.repository.save(prerecord);
   }
@@ -36,17 +36,17 @@ export class PrerecordService {
     id: any,
     body: CreatePrerecordDto,
   ): Promise<Prerecord> {
-    const user = await this.repository
+    const prerecord = await this.repository
       .findOne({ where: { id: id } })
       .then((user) => user);
 
-    body.name ? (user.name = body.name) : null;
-    body.date ? (user.date = body.date) : null;
-    body.cost ? (user.cost = body.cost) : null;
-    body.voucher ? (user.voucher = body.voucher) : null;
-    body.propertyId ? (user.propertyId = body.propertyId) : null;
-    user.updatedAt = new Date();
+    body.name ? (prerecord.name = body.name) : null;
+    body.date ? (prerecord.date = body.date) : null;
+    body.cost ? (prerecord.cost = body.cost) : null;
+    body.voucher ? (prerecord.voucher = body.voucher) : null;
+    body.property ? (prerecord.property = body.property) : null;
+    prerecord.updatedAt = new Date();
 
-    return this.repository.save(user);
+    return this.repository.save(prerecord);
   }
 }
