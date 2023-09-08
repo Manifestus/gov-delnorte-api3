@@ -13,8 +13,11 @@ export class PrerecordService {
     return this.repository.find();
   }
 
-  public async getPrerecord(id: string): Promise<Prerecord> {
-    return this.repository.findOne({ where: { id: id, isDeleted: false } });
+  public async getPrerocord(id: any): Promise<Prerecord[]> {
+    return this.repository.find({
+      relations: ['property'],
+      where: { propertyId: { id: id } },
+    });
   }
 
   public async createPrerecord(body: CreatePrerecordDto): Promise<Prerecord> {
