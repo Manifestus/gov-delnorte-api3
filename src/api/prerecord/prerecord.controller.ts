@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Inject,
   Param,
@@ -38,6 +39,15 @@ export class PrerecordController {
     @Param('id') id: string,
     @Body() body: CreatePrerecordDto,
   ): Promise<Prerecord> {
+    return this.service.updatePrerecord(id, body);
+  }
+
+  @Delete(':id')
+  public async deleteProperty(
+    @Param('id') id: string,
+    @Body() body: CreatePrerecordDto,
+  ): Promise<Prerecord> {
+    body.isDeleted = true;
     return this.service.updatePrerecord(id, body);
   }
 }
