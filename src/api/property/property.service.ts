@@ -17,7 +17,7 @@ export class PropertyService {
     return this.repository.find();
   }
 
-  public createUser(body: CreatePropertyDto): Promise<Property> {
+  public createProperty(body: CreatePropertyDto): Promise<Property> {
     const property: Property = new Property();
 
     property.state = body.state;

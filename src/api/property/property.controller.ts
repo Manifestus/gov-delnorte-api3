@@ -28,8 +28,10 @@ export class PropertyController {
   }
 
   @Post()
-  public async createUser(@Body() body: CreatePropertyDto): Promise<Property> {
-    return this.service.createUser(body);
+  public async createProperty(
+    @Body() body: CreatePropertyDto,
+  ): Promise<Property> {
+    return this.service.createProperty(body);
   }
 
   @Patch(':id')
