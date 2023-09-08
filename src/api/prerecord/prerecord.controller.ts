@@ -12,7 +12,7 @@ import { PrerecordService } from '../prerecord/prerecord.service';
 import { Prerecord } from '../prerecord/prerecord.entity';
 import { CreatePrerecordDto } from '../prerecord/prerecord.dto';
 
-@Controller('property')
+@Controller('prerecord')
 export class PrerecordController {
   @Inject(PrerecordService)
   private readonly service: PrerecordService;
