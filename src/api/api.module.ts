@@ -8,9 +8,10 @@ import { HistoryModule } from './history/history.module';
 import { InvoiceModule } from './invoice/invoice.module';
 import { MediaModule } from './media/media.module';
 import { StorageModule } from './storage/storage.module';
-import { TransactionController } from './transaction/transaction.controller';
+// import { TransactionController } from './transaction/transaction.controller';
 import { TransactionModule } from './transaction/transaction.module';
 import { BearerModule } from './bearer/bearer.module';
+import { PrerecordModule } from './prerecord/prerecord.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { BearerModule } from './bearer/bearer.module';
     MediaModule,
     StorageModule,
     BearerModule,
+    PrerecordModule,
     // //TransactionModule,
     // //TransactionTypeModule,
     // //AuthorizationModule,
@@ -34,6 +36,7 @@ import { BearerModule } from './bearer/bearer.module';
     MediaModule,
     StorageModule,
     TransactionModule,
+    PrerecordModule,
   ],
   controllers: [],
 })

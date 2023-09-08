@@ -9,6 +9,7 @@ import {
 import { History } from '../history/history.entity';
 import { Transaction } from '../transaction/transaction.entity';
 import { Invoice } from '../invoice/invoice.enity';
+import { Prerecord } from '../prerecord/prerecord.entity';
 
 @Entity('property')
 export class Property {
@@ -332,4 +333,7 @@ export class Property {
 
   @OneToMany(() => Invoice, (Invoice) => Invoice)
   Invoice: Invoice;
+
+  @OneToMany(() => Prerecord, (Prerecord) => Prerecord)
+  Prerecord: Prerecord;
 }
